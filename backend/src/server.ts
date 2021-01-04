@@ -1,9 +1,9 @@
 import express, { request, response } from 'express';
+import routes from './routes';
 
 const app = express();
-app.get('/test', (request, response) => {
-    return response.json({ message: 'test'});
-})
+
+app.use(routes);
 
 app.listen(3333, () => {
     console.log("server started");
