@@ -1,0 +1,17 @@
+{
+    "type": "postgres",
+     "host": "localhost",
+     "port": 5432,
+     "username": "mem",
+     "password": "mem123",
+     "database": "mem",
+     "entities": [
+      "src/models/*/*.ts"
+     ],
+     "migrations": [
+       "./src/database/mig rations/*.ts"
+     ],
+     "cli": {
+       "migrationsDir": "./src/database/migrations"
+     }
+  }
