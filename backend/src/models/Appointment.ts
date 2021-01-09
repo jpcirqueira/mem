@@ -19,6 +19,9 @@ class Appointment {
 
     @UpdateDateColumn()
     updated_at: Date;
+
+    @Column()
+    user_id: string;
 }
 
 export default Appointment;
