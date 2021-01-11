@@ -10,7 +10,7 @@ import {
 
 import User from '../user/User';
 
-@Entity()
+@Entity('appointments')
 class Appointment {
     @PrimaryGeneratedColumn('uuid')
     id: string;
