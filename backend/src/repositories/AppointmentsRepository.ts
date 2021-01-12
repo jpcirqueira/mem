@@ -7,7 +7,7 @@ class AppointmentsRepository extends Repository<Appointment> {
         const appointment = await this.findOne({
             where: { date },
         });
-
+        console.log(appointment);
         return appointment || null;
     }
 }
