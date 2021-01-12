@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { getCustomRepository } from 'typeorm';
 import { startOfHour } from 'date-fns';
 import User from '../models/user/User';

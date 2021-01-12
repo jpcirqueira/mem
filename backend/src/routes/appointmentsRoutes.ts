@@ -1,5 +1,6 @@
-import { Router, request, response } from 'express';
+import { Router } from 'express';
 import { getCustomRepository, getRepository } from 'typeorm';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { parseISO } from 'date-fns';
 import AppointmentsRepository from '../repositories/AppointmentsRepository';
 import User from '../models/user/User';
@@ -19,9 +20,6 @@ appointemntsRouter.post('/', async (request, response) => {
 
         const parsedDate = parseISO(date);
         const usersRepository = getRepository(User);
-        const appointmentsRepository = getCustomRepository(
-            AppointmentsRepository,
-        );
 
         const user = await usersRepository.findOne({ where: { id: user_id } });
         const createAppointment = new CreateAppointmentService();
