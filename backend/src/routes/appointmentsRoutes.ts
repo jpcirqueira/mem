@@ -18,26 +18,22 @@ appointemntsRouter.get('/', async (request, response) => {
 });
 
 appointemntsRouter.post('/', async (request, response) => {
-    try {
-        const user_id = request.user.id;
-        const { date } = request.body;
+    const user_id = request.user.id;
+    const { date } = request.body;
 
-        const parsedDate = parseISO(date);
-        const usersRepository = getRepository(User);
+    const parsedDate = parseISO(date);
+    const usersRepository = getRepository(User);
 
-        const user = await usersRepository.findOne({ where: { id: user_id } });
-        const createAppointment = new CreateAppointmentService();
-        if (!user) {
-            return response.status(401).json('User not found!');
-        }
-        const appointment = await createAppointment.execute({
-            user,
-            date: parsedDate,
-        });
-        return response.json(appointment);
-    } catch (error) {
-        return response.status(400).json(error);
+    const user = await usersRepository.findOne({ where: { id: user_id } });
+    const createAppointment = new CreateAppointmentService();
+    if (!user) {
+        return response.status(401).json('User not found!');
     }
+    const appointment = await createAppointment.execute({
+        user,
+        date: parsedDate,
+    });
+    return response.json(appointment);
 });
 
 export default appointemntsRouter;
