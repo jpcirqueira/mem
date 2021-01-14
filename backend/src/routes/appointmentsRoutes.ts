@@ -19,7 +19,8 @@ appointemntsRouter.get('/', async (request, response) => {
 
 appointemntsRouter.post('/', async (request, response) => {
     try {
-        const { user_id, date } = request.body;
+        const user_id = request.user.id;
+        const { date } = request.body;
 
         const parsedDate = parseISO(date);
         const usersRepository = getRepository(User);
