@@ -5,7 +5,7 @@ import { parseISO } from 'date-fns';
 import AppointmentsRepository from '../repositories/AppointmentsRepository';
 import User from '../models/user/User';
 import CreateAppointmentService from '../services/CreateAppointmentService';
-import ensureAthenticated from '../middlwares/ensureAuthenticated';
+import ensureAthenticated from '../middlewares/ensureAuthenticated';
 
 const appointemntsRouter = Router();
 
